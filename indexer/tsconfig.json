@@ -8,7 +8,7 @@
       "es2017",
       "es2018",
       "es2019",
-      "es2020",
+      "es2020"
     ],
     "declaration": true,
     "declarationMap": true,
@@ -22,11 +22,11 @@
     "useUnknownInCatchVariables": false,
     "baseUrl": ".",
     "paths": {
-      "@dydxprotocol-indexer/example-package": ["packages/example-package/src"],
-    },
+      "@dydxprotocol-indexer/example-package": ["packages/example-package/src"]
+    }
   },
   "exclude": [
     "node_modules"
   ],
-  "compileOnSave": true,
+  "compileOnSave": true
 }
