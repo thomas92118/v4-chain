@@ -19,7 +19,7 @@
   "scripts": {
     "lint": "eslint --ext .ts,.js .",
     "lint:fix": "eslint --ext .ts,.js . --fix",
-    "build": "rm -rf build/ && tsc && node fix-bignumber.js",
+    "build": "rm -rf build/ && tsc && node -e \"const fs=require('fs'),path=require('path');const fixFile=(file,search,replace)=>{if(fs.existsSync(file)){let c=fs.readFileSync(file,'utf8');if(!c.includes('import { BigNumber } from \\'bignumber.js\\';')){c=c.replace(search,replace);fs.writeFileSync(file,c);console.log('Fixed',path.basename(file))}}};fixFile('./build/src/config-util.d.ts','import { Big } from \\'big.js\\';\\nimport { Bigable, BigIntable, BigNumberable, NodeEnv } from \\'./types\\';','import { Big } from \\'big.js\\';\\nimport { BigNumber } from \\'bignumber.js\\';\\nimport { Bigable, BigIntable, BigNumberable, NodeEnv } from \\'./types\\';');fixFile('./build/src/types.d.ts','import { Big } from \\'big.js\\';','import { Big } from \\'big.js\\';\\nimport { BigNumber } from \\'bignumber.js\\';');\"",
     "build:prod": "pnpm run build",
     "build:watch": "pnpm run build -- --watch",
     "test": "NODE_ENV=test jest --runInBand --forceExit"
