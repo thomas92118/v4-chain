@@ -19,7 +19,7 @@ export default function server(
 
   app.use(responseTime({ suffix: false }));
 
-  app.use(requestId());
+  app.use(requestId() as unknown as express.RequestHandler);
 
   app.use(resBodyCapture);
 

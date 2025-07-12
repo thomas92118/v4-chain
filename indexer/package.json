@@ -25,5 +25,10 @@
   },
   "devDependencies": {
     "@types/ws": "8.5.10"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/node": "18.19.118"
+    }
   }
 }
